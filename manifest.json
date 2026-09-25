@@ -1,0 +1,11 @@
+{
+  "modules": [
+    {"file": "00_correctness.js", "kind": "script", "id": "euca-v8-correctness"},
+    {"file": "11_style.css", "kind": "style", "id": "euca-v8-style"},
+    {"file": "10_runtime.js", "kind": "script", "id": "euca-v8-runtime"},
+    {"file": "20_coordinator.js", "kind": "script", "id": "euca-v8-coordinator"},
+    {"file": "30_relational.js", "kind": "script", "id": "euca-v8-relational"},
+    {"file": "35_web.js", "kind": "script", "id": "euca-v8-web"},
+    {"file": "40_nback.js", "kind": "script", "id": "euca-v8-nback"}
+  ]
+}

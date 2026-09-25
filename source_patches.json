@@ -1,0 +1,110 @@
+[
+ {
+  "line": 7607,
+  "find": "<h3>Sets, quantifiers, Boolean connectors and conditional branches</h3>\r\n<p>Relational Reasoning now treats set membership and quantifiers as explicit families. A value may be even, prime, composite, square, a power of 2, a multiple of 3, or from {IL} to {IH}. L0 may ask whether both values, at least one value, no value, exactly one value, or not both values satisfy a condition.</p>",
+  "replace": "<h3>Sets, quantifiers, Boolean connectors and conditional branches</h3>\r\n<p>Relational Reasoning now treats set membership and quantifiers as explicit families. A value may be even, prime, composite, square, a power of 2 (1, 2, 4, 8, 16 — note that 1 counts, because 1 = 2⁰), a multiple of 3, or from {IL} to {IH}. L0 may ask whether both values, at least one value, no value, exactly one value, or not both values satisfy a condition.</p>",
+  "count": 1
+ },
+ {
+  "line": 22386,
+  "find": "      ],\r\n      (a,b)=>transformedCompare(a,b,\"complement10\")>0,ttags,{relationMode:\"transform\",transformFamily:\"complement10\",allowEqual:false}),",
+  "replace": "      ],\r\n      (a,b)=>transformedCompare(a,b,\"complement10\")>0,ttags,{relationMode:\"transform\",transformFamily:\"complement10\",allowEqual:false,valid:(a,b)=>a<=10&&b<=10}),",
+  "count": 1
+ },
+ {
+  "line": 22393,
+  "find": "      ],\r\n      (a,b)=>transformedCompare(b,a,\"complement10\")>0,ttags,{relationMode:\"transform\",transformFamily:\"complement10\",allowEqual:false}),",
+  "replace": "      ],\r\n      (a,b)=>transformedCompare(b,a,\"complement10\")>0,ttags,{relationMode:\"transform\",transformFamily:\"complement10\",allowEqual:false,valid:(a,b)=>a<=10&&b<=10}),",
+  "count": 1
+ },
+ {
+  "line": 22495,
+  "find": "        {q:\"Is the total a multiple of 5?\"},\r\n        {q:\"Does the total cross to the next decade exactly?\"},",
+  "replace": "        {q:\"Is the total a multiple of 5?\"},\r\n        {q:\"Does the total land exactly on a multiple of 5?\"},",
+  "count": 1
+ },
+ {
+  "line": 43579,
+  "find": "  square:         { binary:false, label:\"perfect square\", failureLabel:\"a perfect square\",test:n => witnessIsSquare(n) },\r\n  multiple_of_3:  { binary:false, label:\"multiple of 3\",  failureLabel:\"a multiple of 3\", test:n => Number.isInteger(n) && n !== 0 && n % 3 === 0 },\r\n  multiple_of_4:  { binary:false, label:\"multiple of 4\",  failureLabel:\"a multiple of 4\", test:n => Number.isInteger(n) && n !== 0 && n % 4 === 0 },\r\n  multiple_of_5:  { binary:false, label:\"multiple of 5\",  failureLabel:\"a multiple of 5\", test:n => Number.isInteger(n) && n !== 0 && n % 5 === 0 },",
+  "replace": "  square:         { binary:false, label:\"perfect square\", failureLabel:\"a perfect square\",test:n => witnessIsSquare(n) },\r\n  multiple_of_3:  { binary:false, label:\"positive multiple of 3\",  failureLabel:\"a positive multiple of 3\", test:n => Number.isInteger(n) && n !== 0 && n % 3 === 0 },\r\n  multiple_of_4:  { binary:false, label:\"positive multiple of 4\",  failureLabel:\"a positive multiple of 4\", test:n => Number.isInteger(n) && n !== 0 && n % 4 === 0 },\r\n  multiple_of_5:  { binary:false, label:\"positive multiple of 5\",  failureLabel:\"a positive multiple of 5\", test:n => Number.isInteger(n) && n !== 0 && n % 5 === 0 },",
+  "count": 1
+ },
+ {
+  "line": 46511,
+  "find": "      { q:\"Considering only values that appear exactly once, what is their total?\", linguisticFrame:\"restrictive_quantifier\" },\r\n      { q:\"Ignore repeated values; sum the rest.\", linguisticFrame:\"negation_scope\" },",
+  "replace": "      { q:\"Considering only values that appear exactly once, what is their total?\", linguisticFrame:\"restrictive_quantifier\" },\r\n      { q:\"Leave out every value that appears more than once; sum the rest.\", linguisticFrame:\"negation_scope\" },",
+  "count": 1
+ },
+ {
+  "line": 46987,
+  "find": "      if(ci === 3 && !canNonpositive) return null; // defensive: should be impossible\r\n      return { correctIndex:ci, choiceLabels:labels, question:`Which is greater: ${spec.label.replace(\" compared with \",\" or \")}?` };",
+  "replace": "      if(ci === 3 && !canNonpositive) return null; // defensive: should be impossible\r\n      // v8: when the \"0 or less\" option is offered it must take priority, otherwise\r\n      // \"The other value is greater\" is also literally true (every retained value is >= 1).\r\n      const priority = canNonpositive ? \" If the transformed value is 0 or less, choose that option instead.\" : \"\";\r\n      return { correctIndex:ci, choiceLabels:labels, question:`Which is greater: ${spec.label.replace(\" compared with \",\" or \")}?${priority}` };",
+  "count": 1
+ },
+ {
+  "line": 47527,
+  "find": "  { id:\"sum_repeated_values\", symmetric:true, family:\"property_filter_compute\", minLevel:3,\r\n    variants:[{q:\"Add the values that appeared more than once.\"},{q:\"Sum all remembered values whose number was repeated.\"}],",
+  "replace": "  { id:\"sum_repeated_values\", symmetric:true, family:\"property_filter_compute\", minLevel:3,\r\n    variants:[{q:\"Add every copy of each value that appeared more than once.\"},{q:\"Sum all remembered values whose number was repeated, counting every copy.\"}],",
+  "count": 1
+ },
+ {
+  "line": 47812,
+  "find": "      {q:\"In pair 2, enter the value that fell between the two values of pair 1.\"},\r\n      {q:\"Use pair 1 as an interval. Which value in pair 2 was from {IL} to {IH}?\"}",
+  "replace": "      {q:\"In pair 2, enter the value that fell between the two values of pair 1.\"},\r\n      {q:\"Use pair 1 as an interval. Which value in pair 2 lay strictly between pair 1's two values?\"}",
+  "count": 1
+ },
+ {
+  "line": 48283,
+  "find": "  else if((q1 === \"both_even\" && q2 === \"both_odd\") || (q1 === \"both_odd\" && q2 === \"both_even\")) ci = 1;\r\n  else ci = q1 === \"mixed\" ? 3 : 2;",
+  "replace": "  else if((q1 === \"both_even\" && q2 === \"both_odd\") || (q1 === \"both_odd\" && q2 === \"both_even\")) ci = 1;\r\n  // v8: labels are [same, even-pair vs odd-pair, only Pair 1 mixed, only Pair 2 mixed];\r\n  // the previous mapping (mixed P1 -> 3) keyed the wrong pair every time exactly one pair was mixed.\r\n  else ci = q1 === \"mixed\" ? 2 : 3;",
+  "count": 1
+ },
+ {
+  "line": 85393,
+  "find": "        binary:false,\r\n        label:\"multiple of 6\",\r\n        failureLabel:\"a multiple of 6\",",
+  "replace": "        binary:false,\r\n        label:\"positive multiple of 6\",\r\n        failureLabel:\"a positive multiple of 6\",",
+  "count": 1
+ },
+ {
+  "line": 85804,
+  "find": "      const idx=p1v&&p2v?0:p1v?1:p2v?2:3;\r\n      return choiceResult(idx,[\"Both pairs show a factor/divisibility relation\",\"Only Pair 1 shows a factor/divisibility relation\",\"Only Pair 2 shows a factor/divisibility relation\",\"Neither pair shows a factor/divisibility relation\"],\"Which option describes the factor relation inside the two retained pairs?\",{dimension:\"factor\"});}},",
+  "replace": "      const idx=p1v&&p2v?0:p1v?1:p2v?2:3;\r\n      return choiceResult(idx,[\"Both pairs show a factor/divisibility relation\",\"Only Pair 1 shows a factor/divisibility relation\",\"Only Pair 2 shows a factor/divisibility relation\",\"Neither pair shows a factor/divisibility relation\"],\"Which option describes the factor relation inside the two retained pairs? (A pair has one when one value divides the other or both share a factor greater than 1.)\",{dimension:\"factor\"});}},",
+  "count": 1
+ },
+ {
+  "line": 85810,
+  "find": "      const d=p=>Math.min(Math.abs(p.a-5),Math.abs(p.b-5)); const d1=d(p1), d2=d(p2); const straddle=p=>(p.a-5)*(p.b-5)<0; const idx=(straddle(p1)&&straddle(p2))?3:(d1<d2?0:d2<d1?1:2);\r\n      return choiceResult(idx,[\"Pair 1 is closer to 5\",\"Pair 2 is closer to 5\",\"Both pairs are equally close to 5\",\"Both pairs straddle 5\"],\"Which option describes distance to the anchor 5?\",{dimension:\"anchor_distance\"});}},",
+  "replace": "      const d=p=>Math.min(Math.abs(p.a-5),Math.abs(p.b-5)); const d1=d(p1), d2=d(p2); const straddle=p=>(p.a-5)*(p.b-5)<0; const idx=(straddle(p1)&&straddle(p2))?3:(d1<d2?0:d2<d1?1:2);\r\n      return choiceResult(idx,[\"Pair 1 is closer to 5\",\"Pair 2 is closer to 5\",\"Both pairs are equally close to 5\",\"Both pairs straddle 5\"],\"Which option describes distance to the anchor 5? (If both pairs straddle 5, choose that; otherwise compare each pair's value nearest to 5.)\",{dimension:\"anchor_distance\"});}},",
+  "count": 1
+ },
+ {
+  "line": 85991,
+  "find": "  function registerL0ClosureCats(){const cats=[...makeCounterCats(),...makeMissingCats(),...makeEpistemicAbstractCats()],existing=new Set((POSNER_CATS||[]).map(c=>c?.id));let added=0;for(const c of cats){if(c&&!existing.has(c.id)){POSNER_CATS.push(c);existing.add(c.id);added++;}}return{added,total:cats.length};} const l0Reg=registerL0ClosureCats();\r\n  const prevRecPred=recursiveTracePredicate; recursiveTracePredicate=function(spec,result){if(!result)return false;const trace=Array.isArray(result.trace)?result.trace:[],values=(Array.isArray(result.traceValues)?result.traceValues:trace.map(e=>e.value)).map(Number).filter(Number.isFinite),final=Number(result.finalValue),depth=Number(result.depth);try{switch(spec?.predicate){case\"first_step_halves\":return trace.length>=2&&Number(trace[0].value)%2===0&&Number(trace[1].value)===Number(trace[0].value)/2;case\"first_step_subtracts_one\":return trace.length>=2&&Number(trace[0].value)%2===1&&Number(trace[0].value)>1&&Number(trace[1].value)===Number(trace[0].value)-1;case\"max_reached\":return values.length?Math.max(...values)>Number(spec.threshold||0):false;case\"min_reached_lt\":return values.length?Math.min(...values)<Number(spec.threshold||0):false;case\"net_change\":{if(!values.length)return false;const net=Math.abs(values[0]-final),band=Array.isArray(spec.band)?spec.band.map(Number):[Number(spec.threshold||0),Infinity];return net>=band[0]&&net<=band[1];}case\"passes_prime\":return values.some(v=>typeof isPrime===\"function\"?isPrime(v):isPrimeLocal(v));case\"absence_of_branch\":return !trace.some(e=>String(e.branchId||\"\")===String(spec.branchId||\"\"));case\"first_step_branch\":return trace.length>=2&&String(trace[1].branchId||trace[0].branchId||\"\")===String(spec.branchId||\"\");case\"terminates_within_k\":return!!result.ok&&depth<=Number(spec.k||spec.threshold||0);}}catch(_){}return prevRecPred(spec,result);};",
+  "replace": "  function registerL0ClosureCats(){const cats=[...makeCounterCats(),...makeMissingCats(),...makeEpistemicAbstractCats()],existing=new Set((POSNER_CATS||[]).map(c=>c?.id));let added=0;for(const c of cats){if(c&&!existing.has(c.id)){POSNER_CATS.push(c);existing.add(c.id);added++;}}return{added,total:cats.length};} const l0Reg=registerL0ClosureCats();\r\n  const prevRecPred=recursiveTracePredicate; recursiveTracePredicate=function(spec,result){if(!result)return false;const trace=Array.isArray(result.trace)?result.trace:[],values=(Array.isArray(result.traceValues)?result.traceValues:trace.map(e=>e.value)).map(Number).filter(Number.isFinite),final=Number(result.finalValue),depth=Number(result.depth);try{switch(spec?.predicate){case\"first_step_halves\":return trace.length>=2&&Number(trace[0].value)%2===0&&Number(trace[1].value)===Number(trace[0].value)/2;case\"first_step_subtracts_one\":return trace.length>=2&&Number(trace[0].value)%2===1&&Number(trace[0].value)>1&&Number(trace[1].value)===Number(trace[0].value)-1;case\"max_reached\":return values.length?Math.max(...values)>Number(spec.threshold||0):false;case\"min_reached_lt\":return values.length?Math.min(...values)<Number(spec.threshold||0):false;case\"net_change\":{if(!values.length)return false;const net=Math.abs(values[0]-values[values.length-1]),band=Array.isArray(spec.band)?spec.band.map(Number):[Number(spec.threshold||0),Infinity];return net>=band[0]&&net<=band[1];}case\"passes_prime\":return values.some(v=>typeof isPrime===\"function\"?isPrime(v):isPrimeLocal(v));case\"absence_of_branch\":return !trace.some(e=>String(e.branchId||\"\")===String(spec.branchId||\"\"));case\"first_step_branch\":return trace.length>=2&&String(trace[1].branchId||trace[0].branchId||\"\")===String(spec.branchId||\"\");case\"terminates_within_k\":return!!result.ok&&depth<=Number(spec.k||spec.threshold||0);}}catch(_){}return prevRecPred(spec,result);};",
+  "count": 1
+ },
+ {
+  "line": 90653,
+  "find": "        clues = [\r\n          {label:`Clue 1: the value is between ${lo} and ${hi}.`, filter:n=>n>=lo && n<=hi},",
+  "replace": "        clues = [\r\n          {label:`Clue 1: the value is from ${lo} to ${hi} (inclusive).`, filter:n=>n>=lo && n<=hi},",
+  "count": 2
+ },
+ {
+  "line": 90661,
+  "find": "        clues = [\r\n          {label:`Clue 1: the value is between ${lo} and ${hi}.`, filter:n=>n>=lo && n<=hi},",
+  "replace": "        clues = [\r\n          {label:`Clue 1: the value is from ${lo} to ${hi} (inclusive).`, filter:n=>n>=lo && n<=hi},",
+  "count": 2
+ },
+ {
+  "line": 105036,
+  "find": "      {id:\"ab_partial_overlap\", group:\"two_topology\", rc:2, nSets:2, regions:3, minLevel:6, desc:\"A and B partly overlap, with each set also having its own part\", short:\"partial overlap\", holds:c => c?.rel?.AB === \"overlap\"},\r\n      {id:\"a_subset_b\", group:\"two_topology\", rc:2, nSets:2, regions:2, minLevel:6, desc:\"all of A is inside B\", short:\"A inside B\", holds:c => c?.rel?.AB === \"subset_AB\"},\r\n      {id:\"b_subset_a\", group:\"two_topology\", rc:2, nSets:2, regions:2, minLevel:6, desc:\"all of B is inside A\", short:\"B inside A\", holds:c => c?.rel?.AB === \"subset_BA\"},",
+  "replace": "      {id:\"ab_partial_overlap\", group:\"two_topology\", rc:2, nSets:2, regions:3, minLevel:6, desc:\"A and B partly overlap, with each set also having its own part\", short:\"partial overlap\", holds:c => c?.rel?.AB === \"overlap\"},\r\n      {id:\"a_subset_b\", group:\"two_topology\", rc:2, nSets:2, regions:2, minLevel:6, desc:\"all of A is inside B\", short:\"A inside B\", holds:c => c?.rel?.AB === \"subset_AB\" || c?.rel?.AB === \"equal\"},\r\n      {id:\"b_subset_a\", group:\"two_topology\", rc:2, nSets:2, regions:2, minLevel:6, desc:\"all of B is inside A\", short:\"B inside A\", holds:c => c?.rel?.AB === \"subset_BA\" || c?.rel?.AB === \"equal\"},",
+  "count": 1
+ },
+ {
+  "line": 113338,
+  "find": "        clue = (oVal > aVal) ? \"gt\" : \"lt\"; outcome = 2;   // Z & other on the same side of anchor ⇒ undetermined",
+  "replace": "        clue = (oVal > aVal) ? \"gt\" : \"lt\"; outcome = 2;   // Z & other on the same side of anchor ⇒ undetermined\r\n        // v8: \"Z < 2\" leaves only Z = 1 under the game's whole-number reading, so \"cannot be determined\" would look wrong.\r\n        if(clue === \"lt\" && aVal <= 2) continue;",
+  "count": 1
+ }
+]
